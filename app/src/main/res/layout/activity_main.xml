@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="56dp"
+    android:gravity="center_horizontal"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/mainActivityEditTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="168dp"
+        android:hint="@string/name"
+        android:inputType="text"/>
+
+    <Button
+        android:id="@+id/mainActivityButtonOpenActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/button_open_user_profile_activity" />
+
+    <Button
+        android:id="@+id/mainActivityButtonOpenWebsite1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/button_open_website" />
+
+    <Button
+        android:id="@+id/mainActivityButtonOpenWebsite2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/button_open_website"/>
+
+    <Button
+        android:id="@+id/mainActivityButtonCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/button_call" />
+
+</LinearLayout>

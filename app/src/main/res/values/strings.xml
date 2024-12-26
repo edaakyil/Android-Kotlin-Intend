@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Android-Kotlin-Intend</string>
+
+    <!-- Button -->
+    <string name="button_open_user_profile_activity">OPEN USER PROFILE</string>
+    <string name="button_open_website">Go Hyperskill</string>
+    <string name="button_call">Call Eda</string>
+
+    <!-- TextView -->
+    <string name="user_profile_activity_title">USER PROFILE</string>
+
+    <!-- Hints -->
+    <string name="name">Name</string>
+
+</resources>
