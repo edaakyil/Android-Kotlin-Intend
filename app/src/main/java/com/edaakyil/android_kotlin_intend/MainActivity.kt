@@ -31,54 +31,60 @@ class MainActivity : AppCompatActivity() {
         initialize()
     }
 
-    private fun initialize() {
-        initViews()
-        goWebsite1()
-        goWebsite2()
-        callSomeone()
-        goUserProfileActivity()
-    }
+    private fun initialize() = initViews()
 
     private fun initViews() {
-        mButtonCall = findViewById(R.id.mainActivityButtonCall)
-        mButtonGoWebsite1 = findViewById(R.id.mainActivityButtonOpenWebsite1)
-        mButtonGoWebsite2 = findViewById(R.id.mainActivityButtonOpenWebsite2)
-        mButtonGoActivity = findViewById(R.id.mainActivityButtonOpenActivity)
         mEditTextUsername = findViewById(R.id.mainActivityEditTextUsername)
+        initGoWebsite1Button()
+        initGoWebsite2Button()
+        initCallSomeoneButton()
+        initGoUserProfileActivityButton()
     }
 
-    private fun goUserProfileActivity() {
-        mButtonGoActivity.setOnClickListener {
-            val intent = Intent(this, UserProfileActivity::class.java)
-            intent.putExtra(USERNAME, mEditTextUsername.text.toString())
-            startActivity(intent)
-        }
+    private fun goUserProfileActivityButtonClickCallback() {
+        val intent = Intent(this, UserProfileActivity::class.java)
+        intent.putExtra(USERNAME, mEditTextUsername.text.toString())
+        startActivity(intent)
     }
 
-    private fun goWebsite1() {
-        mButtonGoWebsite1.setOnClickListener {
+    private fun initGoUserProfileActivityButton() {
+        mButtonGoActivity = findViewById(R.id.mainActivityButtonOpenActivity)
+        mButtonGoActivity.setOnClickListener { goUserProfileActivityButtonClickCallback() }
+    }
+
+    private fun goWebsite1ButtonClickCallback() {
             val website = Uri.parse("https://hyperskill.org")
             val intent = Intent(Intent.ACTION_VIEW, website)
             startActivity(intent)
-        }
     }
 
-    private fun goWebsite2() {
-        mButtonGoWebsite2.setOnClickListener {
-            val intent = Intent()
-            intent.action = Intent.ACTION_VIEW
-            intent.data = Uri.parse("https://hyperskill.org")
-            intent.addCategory(Intent.CATEGORY_BROWSABLE)
-            startActivity(intent)
-        }
+    private fun initGoWebsite1Button() {
+        mButtonGoWebsite1 = findViewById(R.id.mainActivityButtonOpenWebsite1)
+        mButtonGoWebsite1.setOnClickListener { goWebsite1ButtonClickCallback() }
     }
 
-    private fun callSomeone()
+    private fun goWebsite2ButtonClickCallback() {
+        val intent = Intent()
+        intent.action = Intent.ACTION_VIEW
+        intent.data = Uri.parse("https://hyperskill.org")
+        intent.addCategory(Intent.CATEGORY_BROWSABLE)
+        startActivity(intent)
+    }
+
+    private fun initGoWebsite2Button() {
+        mButtonGoWebsite2 = findViewById(R.id.mainActivityButtonOpenWebsite2)
+        mButtonGoWebsite2.setOnClickListener { goWebsite2ButtonClickCallback() }
+    }
+
+    private fun callSomeoneButtonClickCallback() {
+        val phoneNumber = Uri.parse("tel:(650)555-1212")
+        val intent = Intent(Intent.ACTION_DIAL,phoneNumber)
+        startActivity(intent)
+    }
+
+    private fun initCallSomeoneButton()
     {
-        mButtonCall.setOnClickListener {
-            val phoneNumber = Uri.parse("tel:(650)555-1212")
-            val intent = Intent(Intent.ACTION_DIAL,phoneNumber)
-            startActivity(intent)
-        }
+        mButtonCall = findViewById(R.id.mainActivityButtonCall)
+        mButtonCall.setOnClickListener { callSomeoneButtonClickCallback() }
     }
 }
